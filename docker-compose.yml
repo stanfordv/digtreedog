@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web
+    restart: always
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    networks:
+      - mine
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PW}
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - mine
+      
+networks:
+  mine:
+    name: DigTreeDog
+    driver: bridge
+    

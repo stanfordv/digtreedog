@@ -1,0 +1,29 @@
+.point {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: verdana;
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin: 2rem 0;
+    border: 0.1rem solid pink;
+    background: lightgreen;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.editable {
+    margin: 1rem;
+    text-align: center;
+}
+
+.text {
+    font-size: 10px;
+}
+
+.deleteButton {
+    height: 3rem;
+    border: 0.2rem solid darkRed;
+    background: lightblue;
+    border-radius: 0.5rem;
+}
