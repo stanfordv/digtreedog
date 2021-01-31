@@ -7,7 +7,6 @@ const createArc = (db, source, dest, weight, primary) => {
         (error, results) => {
           if (error) {
             reject({ origin: "createArc", error });
-            console.log("error")
             return;
           }
           resolve(true);
